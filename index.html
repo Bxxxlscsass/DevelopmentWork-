@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio Allan Felipe</title>
+    <style>
+        body 
+        {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f4f9; 
+            padding: 20px; 
+            
+        }
+        nav 
+        {
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 20px; 
+            justify-content: center; 
+        }
+        button 
+        { 
+            padding: 10px 20px; 
+            cursor: pointer; 
+            border: none; 
+            border-radius: 5px; 
+            background: #0056b3; 
+            color: white; 
+            transition: 0.3s; 
+        }
+        button:hover 
+        { 
+            background: #0056b3; 
+            transform: scale(1.05); 
+        }
+        .aba-conteudo 
+        { 
+            display: none; 
+            background: white; 
+            padding: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        }
+        .ativa 
+        { 
+            display: block; 
+            animation: fadeIn 0.5s; 
+        }
+        @keyframes fadeIn 
+        { 
+            from { opacity: 0; } to { opacity: 1; } 
+        }
+        input, textarea { 
+            width: 100%; 
+            padding: 8px; 
+            margin: 10px 0; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+        }
+        .error 
+        { 
+            border: 2px solid red; 
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <button onclick="abrirAba('sobre')">Sobre Mim</button>
+        <button onclick="abrirAba('formacao')">Formação</button>
+        <button onclick="abrirAba('portfolio')">Portfólio</button>
+        <button onclick="abrirAba('contato')">Contato</button>
+    </nav>
+
+    <div id="container-barra" 
+        style="display: none; width: 100%; background: #ddd; border-radius: 5px; margin-top: 10px;">
+    <div id="progresso" style="width: 0%; height: 20px; background: #0056b3; border-radius: 5px; text-align: center; color: white; font-size: 12px; line-height: 20px;">
+        0%
+    </div>
+
+</div>
+
+
+    <!-- sobre mim -->
+    <div id="sobre" class="aba-conteudo ativa">
+        <h2>Sobre Mim</h2>
+        <p>Olá, Sou <strong>Allan Felipe </strong>, acadêmico de <strong>Ciência da Computação</strong> pela Uninter e entusiasta de infraestrutura tecnológica.</p>
+        <p>Minha jornada na TI é movida pela curiosidade de entender como o software interage com hardware. Atualmente, foco meus estudos na programação, desenvolvimento de <strong>sistemas robustos em Java</strong> e 
+        na análise técnica de <strong>suporte em ambientes de missão crítica.</strong>
+        Tenho facilidade em diagnosticar falhas em <strong>redes IP</strong> e arquiteturas de <strong> sistemas distribuidos,</strong> buscando otimizar a perfomace e a segurança de dados.
+        </p> 
+    </div>
+
+    <!-- FORMAÇÃO -->
+    <div id="formacao" class="aba-conteudo">
+        <h2>Formação Acadêmica</h2>
+        <ul>
+            <li><strong>Graduação em TI:</strong> Uninter (Ciência da Computação)</li>
+            <li><strong>Cursos Livres:</strong> Core Java 2,  sistemas distribuidos e Redes de Computadores.</li>
+            <li><strong>Cursos Futuros:</strong> engenharia, TI ou sistema de informação</li>
+            <li><strong>Idiomas:</strong> Inglês Técnico (Leitura de documentações).</li>
+        </ul>
+    </div>
+
+    <!-- PORTFÓLIO -->
+    <div id="portfolio" class="aba-conteudo">
+        <h2>Meu Portfólio</h2>
+        <p>No meu portfólio, eu não foquei apenas na interface. Desenvolvi uma estrutura em Javascript que simula o comportamento de um <strong> sistema distribuido,</strong> com barras
+        de carregamento que representam uma latência de uma rede IP e o tempo de resposta de um servidor em Java com um fluxo de dados do cliente ao servidor.</p>
+        <p>Projetos desenvolvidos com foco em soluções de suporte e eficiência de processamento. Aqui você encontrará aplicações que unem o código <strong>Java</strong> com a agilidade do desenvolvimento Web, 
+        sempre priorizando o monitoramento de perfomance e a facilidade de suporte técnico em TI.</p>
+        <p>Cada projeto aqui seguiu um levantamento de requisitos e testes, garantindo que o software suporte as demandas de uma rede de sistemas real.</p>
+        <p>Projetos Github:<strong> Analisador</strong> de Logs de Servidor (Java e TI)</p>
+        <a href="https://github.com/Bxxxlscsass/Development.github.io" target="_blank">Repositório de Analisador de Logs Java e TI</a>
+    </div>
+
+    <!-- CONTATO -->
+    <div id="contato" class="aba-conteudo">
+        <h2>Contato</h2>
+        <form id="formContato">
+            <input type="text" id="nome" placeholder="Nome Completo">
+            <input type="email" id="email" placeholder="E-mail">
+            <textarea id="msg" rows="4" placeholder="Sua mensagem..."></textarea>
+            <button type="submit">Enviar Requisição Mensagem</button>
+        </form>
+        <p id="feedback"></p>
+    </div>
+
+    <script>
+        // Função para trocar (Interação em clique)
+        function abrirAba(idAba) {
+            // Esconde todas as bordas
+            const abas = document.querySelectorAll('.aba-conteudo');
+            abas.forEach(aba => aba.classList.remove('ativa'));
+            
+            // Mostra a borda clicada
+            document.getElementById(idAba).classList.add('ativa');
+            console.log("Navegando para: " + idAba); // diagnóstico de suporte 
+        }
+
+        // Validação e Simulação de Envio de Formulario (Sistema distribuidos e suporte de TI)
+        document.getElementById('formContato').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const campos = [document.getElementById('nome'), document.getElementById('email'), document.getElementById('msg')];
+            let valido = true;
+
+            campos.forEach(campo => {
+                if (campo.value.trim() === "") {
+                    campo.classList.add('error');
+                    valido = false;
+                } else {
+                    campo.classList.remove('error');
+                }
+            });
+
+            const feedback = document.getElementById('feedback');
+            const containerBarra = document.getElementById('container-barra');
+            const barraProgresso = document.getElementById('progresso');
+            
+            if (valido) {
+                feedback.style.color = "blue";
+                feedback.innerText = "Enviando dados para o servidor... ";
+                
+                containerBarra.style.display = "block";
+                let largura = 0;
+                
+                //simulador de tráfego em sistema distribuidos
+                const interval = setInterval(() => {
+                    if (largura >= 100) {
+                        clearInterval(interval); //para o contador 100%
+                    
+                    feedback.style.color = "green";
+                    feedback.innerText = "Dados do sistema enviados com sucesso!";
+
+                    alert("Agradecemos o seu contato!");
+
+                    this.reset();  //limpa formulário após enviar
+                    containerBarra.style.display = "none";   //esconde a barra
+                    barraProgresso.style.width = "0%"; //reset barra para a próxima seção 
+                } else {
+                    largura += 10;  //incrementa de 10 em 10%
+                    barraProgresso.style.width = largura + "%";
+                    barraProgresso.innerText = largura + "%";
+
+                    //exemplo de lógica de suporte: mudar cor se estiver "pesado"
+                    if(largura > 70) barraProgresso.style.background = "#28a745";
+                }
+
+            }, 100);   //velocidade do simulador de rede (100ms)
+               
+            } else {
+                feedback.style.color = "red";
+                feedback.innerText = "Erro: Preencha todos os campos do sistema obrigatórios!";
+            }
+        });
+    </script>
+</body>
+</html>
